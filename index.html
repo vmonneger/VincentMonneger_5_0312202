@@ -10,21 +10,25 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
 
-    <body>
+    <body class="bg-dark">
       <header>
-        <nav class="navbar navbar-expand-md navbar-brand-center navbar-light shadow-sm p-3 mb-5 bg-body rounded">
+        <nav class="navbar navbar-expand-md navbar-brand-center navbar-light shadow-sm p-3 mb-5 bg-body">
           <div class="container">  
             <a class="navbar-brand" href="#">Oronico</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-              <ul class="navbar-nav">
+              <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Vos commandes</a>
+                  <a class="nav-link " aria-current="page" href="#">Vos commandes</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link active" href="#">Panier</a>
+                <li class="nav-item ms-3">
+                  <button type="button" class="btn btn-outline-dark">
+                  <a class="nav-link d-flex align-items-center" href="#">Panier<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart ms-2" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/></svg>
+                  </a>
+                </button>
                 </li>
               </ul>
             </div>
@@ -32,50 +36,87 @@
         </nav>
       </header>
 
-      <section class="container">
+      <section class="container my-5">
+        <h1 class="mb-5">Caméras Vintage</h1>
+        <p>Nos produits</p>
         <div class="row">
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-transparent">
-              <img src="images/vcam_1.jpg" class="card-img-top rounded-1" alt="vcam_1">
+          <div class="col-md-6 col-lg-4 mb-5">
+            <div class="card bg-white">
+              <img src="images/vcam_1.jpg" class="card-img-top" alt="vcam_1">
               <div class="card-body">
-                <p class="card-text">VCAM 1</p>
+                <p class="card-text text-center text-body">VCAM 1</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-transparent">
-              <img src="images/vcam_2.jpg" class="card-img-top rounded-1" alt="vcam_1">
+          <div class="col-md-6 col-lg-4 mb-5">
+            <div class="card bg-white">
+              <img src="images/vcam_2.jpg" class="card-img-top" alt="vcam_1">
               <div class="card-body">
-                <p class="card-text">VCAM 2</p>
+                <p class="card-text text-center text-body">VCAM 2</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-transparent">
-              <img src="images/vcam_3.jpg" class="card-img-top rounded-1" alt="vcam_1">
+          <div class="col-md-6 col-lg-4 mb-5">
+            <div class="card bg-white">
+              <img src="images/vcam_3.jpg" class="card-img-top" alt="vcam_1">
               <div class="card-body">
-                <p class="card-text">VCAM 3</p>
+                <p class="card-text text-center text-body">VCAM 3</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-transparent">
-              <img src="images/vcam_4.jpg" class="card-img-top rounded-1" alt="vcam_1">
+          <div class="col-md-6 col-lg-4 mb-5">
+            <div class="card bg-white">
+              <img src="images/vcam_4.jpg" class="card-img-top" alt="vcam_1">
               <div class="card-body">
-                <p class="card-text">VCAM 4</p>
+                <p class="card-text text-center text-body">VCAM 4</p>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card bg-transparent">
-              <img src="images/vcam_5.jpg" class="card-img-top rounded-1" alt="vcam_1">
+          <div class="col-md-6 col-lg-4 mb-5">
+            <div class="card bg-white">
+              <img src="images/vcam_5.jpg" class="card-img-top" alt="vcam_1">
               <div class="card-body">
-                <p class="card-text">VCAM 5</p>
+                <p class="card-text text-center text-body">VCAM 5</p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- Footer -->
+<footer class="text-center text-white bg-light">
+  <!-- Grid container -->
+  <div class="container p-4">
+
+    <!-- Section: Text -->
+    <section class="mb-4 text-body">
+      <p>
+        ORONICO
+      </p>
+    </section>
+    <!-- Section: Text -->
+
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0 ">
+          <p class="text-uppercase text-body">Navigation</p>
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="#!" class="text-white text-body">Vos commandes</a>
+            </li>
+            <li>
+              <a href="#!" class="text-white text-body">Panier</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</footer>
+<!-- Footer -->
         
         <script type="module" src="js/main.js"></script>
     </body>
