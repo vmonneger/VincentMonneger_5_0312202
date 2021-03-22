@@ -1073,6 +1073,10 @@ progress {
   }
 }
 @media (min-width: 768px) {
+  /* AJOUT HEIGHT CARD */
+  .card-img-top {
+    height: 235px;
+  }
   .col-md {
     flex: 1 0 0%;
   }
@@ -1712,6 +1716,10 @@ progress {
   }
 }
 @media (min-width: 1400px) {
+  /* AJOUT HEIGHT CARD */
+  .card-img-top {
+    height: 275px;
+  }
   .col-xxl {
     flex: 1 0 0%;
   }
