@@ -10,7 +10,7 @@ export default {
         {
             _id: "2",
             name: "VCAM2",
-            price: 238,
+            price: 500,
             description: "Appareil photo numérique calibre 44",
             image: "images/vcam_2.jpg"
         },

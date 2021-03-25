@@ -12,7 +12,7 @@ import homeScreen from "./homeScreen.js"
 // const app = express();
 
 const router = () => {
-  const main = document.getElementById("main-container")
+  const main = document.getElementById("list-product")
   main.innerHTML = homeScreen.render();
 }
 window.addEventListener("load", router)
