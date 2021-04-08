@@ -1,4 +1,7 @@
-let theProduct = document.getElementById("le-produit")
+let theProduct = document.getElementById("le-produit");
+const select = document.getElementById("select");
+const urlId = window.location.search.substring(1);
+
 
 class Boutique {
     constructor() {
@@ -16,33 +19,40 @@ class Boutique {
                     this.afficheProduit();
                 })
             } else {
-                console.log("ERREUR")
+                console.log("ERREUR PAS DE CONNEXION AVEC SERVEUR")
             }
         });
     };
     afficheProduit() {
-        let render = this.produits.map((product) => {
-            return`
+        const findProduit = this.produits.find( object => object._id === urlId);
+        theProduct.innerHTML = 
+            `
             <div class=" col-sm-12 col-lg-6">
-              <img src="${product.imageUrl}"  class="product-img img-fluid" alt="vcam_1">
+              <img src="${findProduit.imageUrl}"  class="product-img img-fluid" alt="vcam_1">
             </div>
             <div class="container col-sm-12 col-lg-6 text-center">
-              <h1 class="product-name">${product.name}</h1>
-              <p class="product-description">${product.description}</p>
-              <p class="product-price fw-bold">${product.price}</p>
-              <select class="form-select mb-5" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <a href="panier.html">
-                <button type="button" class="btn btn-warning px-5 shadow-sm">Ajouter au panier</button>
-              </a>
-            </div>`
-        }).join("")
-        theProduct.innerHTML = render;
-    }
+              <h1 class="product-name">${findProduit.name}</h1>
+              <p class="product-description">${findProduit.description}</p>
+              <p class="product-price fw-bold">${findProduit.price}</p>
+              `
+              
+        // let render = findProduit.lenses.forEach(option => {
+        //     select.innerHTML +=`
+        //     <select class="form-select mb-5" id="select" aria-label="Default select example">
+        //         <option selected>Open this select menu</option>
+        //         <option value="1">${option}</option>
+        //         <option value="2">Two</option>
+        //         <option value="3">Three</option>
+        //       </select>
+        //     `
+        //     console.log(render)
+        // })
+        
+        let options = findProduit.lenses;
+        let ari = options.forEach(element => select.innerHTML = element);
+        
+        
+    }    
     changeCategorie(categorie) {
         this.categorie = categorie;
         this.chargeProduit();
@@ -51,6 +61,9 @@ class Boutique {
 
 
 const boutique = new Boutique();
+
+
+
 
 
 

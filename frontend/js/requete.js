@@ -16,7 +16,7 @@ class Boutique {
                     this.afficheProduit();
                 })
             } else {
-                console.log("ERREUR")
+                console.log("ERREUR PAS DE CONNEXION AVEC SERVEUR")
             }
         });
     };
@@ -30,13 +30,14 @@ class Boutique {
                     <h2 class="product-name fs-6 card-text text-body fw-bold">${product.name}</h2>
                     <p class="product-description text-body" id="description1">${product.description}</p>
                     <p class="product-price text-body fw-bold">${product.price}</p>
-                    <a href="produit.html">
+                    <a href="produit.html?${product._id}">
                     <button type="button" class="btn btn-warning px-5 shadow-sm">Personnaliser</button>
                     </a>
                 </div>
                 </div>
             </li>`
         }).join("")
+        console.log(render)
         listProduct.innerHTML = render;
     }
     changeCategorie(categorie) {
