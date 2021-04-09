@@ -187,3 +187,18 @@
 <script src="js/requete.js"></script>
     </body>
 </html>
+
+
+
+const findProduit = this.produits.find( object => object._id === urlId);
+        theProduct.innerHTML = 
+            `
+            <div class=" col-sm-12 col-lg-6">
+              <img src="${findProduit.imageUrl}"  class="product-img img-fluid" alt="vcam_1">
+            </div>
+            <div class="container col-sm-12 col-lg-6 text-center">
+              <h1 class="product-name">${findProduit.name}</h1>
+              <p class="product-description">${findProduit.description}</p>
+              <p class="product-price fw-bold">${findProduit.price}</p>
+              
+              `
