@@ -37,7 +37,6 @@ class Boutique {
                 </div>
             </li>`
         }).join("")
-        console.log(render)
         listProduct.innerHTML = render;
     }
     changeCategorie(categorie) {
