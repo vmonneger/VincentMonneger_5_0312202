@@ -40,7 +40,7 @@ class Boutique {
               <p class="product-price fw-bold">${this.produit.price}</p>
             </div>  
               `
-        select.innerHTML = this.produit.lenses.map((option, index) => {
+        select.innerHTML = this.produit.lenses.map((option) => {
             return`<option value="${option}">${option}</option>`
         }).join('')
     }    
