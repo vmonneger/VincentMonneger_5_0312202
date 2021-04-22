@@ -1,17 +1,13 @@
 const listPanier = document.getElementById("list-panier");
-const clearPanier = document.getElementById("clear-panier");
+const myForm = document.getElementById("myForm")
 let panier = [];
-// const strPanier = localStorage.getItem("panier");
-// if (strPanier !== null) {
-//     panier = JSON.parse(strPanier);
-// }
+const strPanier = localStorage.getItem("panier");
+if (strPanier !== null) {
+    panier = JSON.parse(strPanier);
+}
 
 
-
-panier = JSON.parse(localStorage.getItem("panier"));
-console.log(panier)
-
-function displayProduct() {
+displayProduct = () => {
     panier.map((produit, index) => {
         listPanier.innerHTML += 
         `
@@ -35,9 +31,10 @@ removeProduct = (index) => {
     totalPrice();
 };
 
-clearFunction = () => {
-    localStorage.removeItem("panier")
+clearPanier = () => {
+    localStorage.removeItem("panier");
     listPanier.innerHTML = "";
+    document.getElementById("total-prix").innerHTML = "";
 };
 
 totalPrice = () => {
@@ -46,63 +43,69 @@ totalPrice = () => {
         sommeTotal += panier[i].price;
         
     }
-    document.getElementById("total-prix").innerHTML = sommeTotal
-    console.log(sommeTotal)
+    document.getElementById("total-prix").innerHTML = sommeTotal;
+    console.log(sommeTotal);
 }
 
 totalPrice();
 displayProduct();
 
 
+myForm.addEventListener("submit", (e) => {
+    const inputNom = document.getElementById("inputNom").value;
+    const inputPrenom = document.getElementById("inputPrenom").value;
+    const inputMail = document.getElementById("inputMail").value;
+    const inputAdresse = document.getElementById("inputAdresse").value;
+    const inputVille = document.getElementById("inputVille").value;;
+    
+    e.preventDefault();
+
+    const regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
+    const regexEspace = /^[A-zÀ-ú]/g
+    const regexAddress = /^[A-zÀ-ú0-9]/g
+
+    let products = [];
+    panier.forEach(produit => {
+        products.push(produit._id);
+    });
+    const contact = 
+        {
+            firstName : inputNom,
+            lastName : inputPrenom,
+            address : inputAdresse,
+            city : inputVille,
+            email : inputMail
+        };
+
+    const postData = {
+        contact,
+        products
+    }
+
+    console.log(postData);
+    if (regexMail.test(inputMail) === true && regexAddress.test(inputAdresse) === true && regexEspace.test(inputNom, inputPrenom, inputVille) === true) {
+        fetch("http://localhost:3000/api/cameras/order", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postData),
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            window.localStorage.setItem("order", JSON.stringify(data));
+            window.location.href = `commande.html?${data.orderId}`;
+        })
+        .catch(error => {
+            console.warn(error);
+        })
+    } else {
+        alert("Le formulaire n'est pas rempli correctement, veuillez entrer des informations valides.")
+    }
+})
 
 
-
-
-
-// class Boutique {
-//     constructor() {
-//         this.produits = [];
-//         this.categorie = "cameras";
-//         this.produit = null;
-//     }
-//     chargeProduit() {
-//         fetch(`http://localhost:3000/api/${this.categorie}`)
-//         .then((response) => {
-//             if (response.ok) {
-//                 response.json()
-//                 .then(data => {
-//                     this.produits = data;
-//                     this.afficheProduit();
-//                 })
-//             } else {
-//                 console.log("ERREUR PAS DE CONNEXION AVEC SERVEUR")
-//             }
-//         });
-//     };
-//     afficheProduit() {
-//         let render = this.produits.map((produit) => {
-            // return`
-            // <div class="d-flex panier-height overflow-hidden mb-3 pt-2 border-top border-warning">
-            //     <img src="${produit.imageUrl}"  class="product-img img-fluid me-4" alt="vcam_1">
-            //     <h1 class="product-name fs-4 me-4">${produit.name}</h1>
-            //     <p class="product-description">${produit.description}</p>
-            //     <p class="product-price fw-bold ms-4">${produit.price}</p>
-            //   </div> 
-            //   `
-//         }).join('')
-//         listPanier.innerHTML = render
-//     }    
-//     ajoutePanier() {
-//         let selectValue = select.value;
-//         panier.push({
-//             ...this.produit,
-//             option: selectValue
-//         });
-//         localStorage.setItem('panier', JSON.stringify(panier));
-//     }
-// }
-
-// const boutique = new Boutique();
 
 
 

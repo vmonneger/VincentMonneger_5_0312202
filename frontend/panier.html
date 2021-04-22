@@ -49,7 +49,7 @@
 
               <div class="d-flex justify-content-end mb-5 mt-5 justify-content-between">
                 <div id="clear-panier">
-                  <button type="button" class="btn btn-danger" id="clear-panier" onclick="clearFunction()">Vider Panier</button>
+                  <button type="button" class="btn btn-danger" onclick="clearPanier()">Vider Panier</button>
                 </div>
                 <div class="d-flex">
                   <h3>TOTAL</h3>
@@ -58,79 +58,55 @@
                 </div>
               </div>
             </div>
-            <div class="col-12 col-md-6 mb-5">
+            <form class="col-12 col-md-6 mb-5" id="myForm">
               <h2>Adresse</h2>
               <div class="mb-3 row">
                 <div class="col-6">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Prénom</label>
+                  <label for="inputPrenom" class="col-sm-2 col-form-label">Prénom</label>
                   <div class="col-sm-10 w-100">
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="text" class="form-control" id="inputPrenom" id="inputPrenom">
                   </div>
                 </div>
                 <div class="col-6">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Nom</label>
+                  <label for="inputNom" class="col-sm-2 col-form-label">Nom</label>
                   <div class="col-sm-10 w-100">
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="text" class="form-control" id="inputNom" name="inputNom">
                   </div>
                 </div>  
               </div>
               <div class="mb-3 row">
                 <div>
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Mail</label>
+                  <label for="inputMail" class="col-sm-2 col-form-label">Mail</label>
                   <div class="col-sm-10 w-100">
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="email" class="form-control" id="inputMail" name="inputMail">
                   </div>
                 </div>
               </div>
               <div class="mb-3 row">
                 <div>
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Téléphone</label>
+                  <label for="inputAdresse" class="col-sm-2 col-form-label">Adresse</label>
                   <div class="col-sm-10 w-100">
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="text" class="form-control" id="inputAdresse" name="inputAdresse">
                   </div>
                 </div>
               </div>
               <div class="mb-3 row">
                 <div>
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Adresse</label>
+                  <label for="inputVille" class="col-sm-2 col-form-label">Ville</label>
                   <div class="col-sm-10 w-100">
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="text" class="form-control" id="inputVille" name="inputVille">
                   </div>
                 </div>
               </div>
-              <div class="mb-3 row">
-                <div>
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Ville</label>
-                  <div class="col-sm-10 w-100">
-                    <input type="password" class="form-control" id="inputPassword">
-                  </div>
+              <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+                <h2>Récapitulatif</h2>
+                <div class="d-flex mt-4">
+                  <h3 class="me-4">Total</h3>
+                  <p class="fw-bold">800€</p>
                 </div>
+                <button type="submit" class="btn btn-warning px-5 shadow-sm">Acheter</button>
               </div>
-              <div class="mb-3 row">
-                <div class="col-6">
-                  <label for="inputPassword" class="col-sm-2 col-form-label w-100 d-flex">Code Postal</label>
-                  <div class="col-sm-10 w-100">
-                    <input type="password" class="form-control" id="inputPassword">
-                  </div>
-                </div>
-                <div class="col-6">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Pays</label>
-                  <div class="col-sm-10 w-100">
-                    <input type="password" class="form-control" id="inputPassword">
-                  </div>
-                </div>  
-              </div>
-            </div>
-            <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
-              <h2>Récapitulatif</h2>
-              <div class="d-flex mt-4">
-                <h3 class="me-4">Total</h3>
-                <p class="fw-bold">800€</p>
-              </div>
-              <a href="commande.html" class="text-decoration-none mb-5">
-                <button type="button" class="btn btn-warning px-5 shadow-sm">Acheter</button>
-              </a>
-            </div>
+            </form>
           </div>
         </section>
       </main>
