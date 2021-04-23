@@ -30,7 +30,7 @@ orderContact.map((order, index) => {
     console.log(order.products[index].price);
     console.log(totalPrice);
     orderRender.innerHTML =
-    `<h1>Commande ${order.orderId}</h1><p>Bonjour ${order.contact.lastName} ${order.contact.firstName}, votre commande de ${totalPrice}€ de a bien été
+    `<h1>Commande ${order.orderId}</h1><p>Bonjour ${order.contact.lastName} ${order.contact.firstName}, votre commande de ${totalPrice}€ a bien été
     enregistré.</p>`
 })
 
