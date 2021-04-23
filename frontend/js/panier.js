@@ -8,6 +8,7 @@ if (strPanier !== null) {
 
 
 displayProduct = () => {
+    console.log(panier)
     panier.map((produit, index) => {
         listPanier.innerHTML += 
         `
