@@ -21,13 +21,15 @@ displayProduct = () => {
         listPanier.innerHTML += 
         `
         <div class="d-flex panier-height overflow-hidden mb-3 pt-2 border-top border-warning justify-content-between">
-            <i class="far fa-trash-alt d-flex align-items-center" onclick="removeProduct(${index})"></i> 
-            <img src="${produit.imageUrl}"  class="product-img img-fluid me-4" alt="vcam_1">
-            <h1 class="product-name fs-4 me-4">${produit.name}</h1>
-            <p class="product-description">Option: ${produit.option}</p>
-            <p class="product-price fw-bold ms-4">${produit.price} €</p>
-            </div> 
-            `   
+        <div class="d-flex align-items-center">
+            <i class="far fa-trash-alt" onclick="removeProduct(${index})"></i> 
+        </div>
+        <img src="${produit.imageUrl}"  class="product-img img-fluid me-4" alt="vcam_1">
+        <h1 class="product-name fs-4 me-4">${produit.name}</h1>
+        <p class="product-description">Option: ${produit.option}</p>
+        <p class="product-price fw-bold ms-4">${produit.price} €</p>
+        </div> 
+        `   
     });
 };
 
@@ -44,7 +46,7 @@ totalPrice = () => {
 removeProduct = (index) => {
     panier.splice(index, 1);
     localStorage.setItem("panier", JSON.stringify(panier));
-    console.log(panier);
+    listPanier.innerHTML = "";
     displayProduct();
     totalPrice(); 
 };
