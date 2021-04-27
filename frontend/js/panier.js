@@ -4,6 +4,14 @@ let panier = [];
 const strPanier = localStorage.getItem("panier");
 if (strPanier !== null) {
     panier = JSON.parse(strPanier);
+};
+
+
+
+if (panier.length === 0) {
+    document.getElementById("panier-vide").style.display = "block";
+} else {
+    document.getElementById("panier-vide").style.display = "none";
 }
 
 
@@ -17,25 +25,10 @@ displayProduct = () => {
             <img src="${produit.imageUrl}"  class="product-img img-fluid me-4" alt="vcam_1">
             <h1 class="product-name fs-4 me-4">${produit.name}</h1>
             <p class="product-description">Option: ${produit.option}</p>
-            <p class="product-price fw-bold ms-4">${produit.price}</p>
+            <p class="product-price fw-bold ms-4">${produit.price} €</p>
             </div> 
             `   
     });
-}
-
-removeProduct = (index) => {
-    panier.splice(index, 1);
-    localStorage.setItem("panier", JSON.stringify(panier));
-    console.log(panier);
-    listPanier.innerHTML = "";
-    displayProduct();
-    totalPrice();
-};
-
-clearPanier = () => {
-    localStorage.removeItem("panier");
-    listPanier.innerHTML = "";
-    document.getElementById("total-prix").innerHTML = "";
 };
 
 totalPrice = () => {
@@ -44,9 +37,26 @@ totalPrice = () => {
         sommeTotal += panier[i].price;
         
     }
-    document.getElementById("total-prix").innerHTML = sommeTotal;
+    document.getElementById("total-prix").innerHTML = `${sommeTotal} €`;
+    document.getElementById("total-button").innerHTML = `${sommeTotal} €`;
     console.log(sommeTotal);
-}
+};
+removeProduct = (index) => {
+    panier.splice(index, 1);
+    localStorage.setItem("panier", JSON.stringify(panier));
+    console.log(panier);
+    displayProduct();
+    totalPrice(); 
+};
+
+clearPanier = () => {
+    localStorage.removeItem("panier");
+    panier = [];
+    listPanier.innerHTML = "";
+    document.getElementById("panier-vide").style.display = "block";
+    totalPrice();
+};
+
 
 totalPrice();
 displayProduct();
@@ -61,9 +71,9 @@ myForm.addEventListener("submit", (e) => {
     
     e.preventDefault();
 
-    const regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
-    const regexEspace = /^[A-zÀ-ú]/g
-    const regexAddress = /^[A-zÀ-ú0-9]/g
+    const regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const regexEspace = /^[A-zÀ-ú]/g;
+    const regexAddress = /^[A-zÀ-ú0-9]/g;
 
     let products = [];
     panier.forEach(produit => {
@@ -81,7 +91,7 @@ myForm.addEventListener("submit", (e) => {
     const postData = {
         contact,
         products
-    }
+    };
 
     console.log(postData);
     if (regexMail.test(inputMail) === true && regexAddress.test(inputAdresse) === true && regexEspace.test(inputNom, inputPrenom, inputVille) === true) {
@@ -94,7 +104,6 @@ myForm.addEventListener("submit", (e) => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             window.localStorage.setItem("order", JSON.stringify(data));
             window.location.href = `commande.html?${data.orderId}`;
         })
@@ -104,7 +113,8 @@ myForm.addEventListener("submit", (e) => {
     } else {
         alert("Le formulaire n'est pas rempli correctement, veuillez entrer des informations valides.")
     }
-})
+});
+
 
 
 

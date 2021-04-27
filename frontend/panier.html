@@ -43,8 +43,8 @@
                 <h2>Produit</h1>
                 <p>Prix</p>
               </div>
+              <h3 class="text-center" id="panier-vide">Votre panier est vide</h3>
               <div id="list-panier">
-
               </div>
 
               <div class="d-flex justify-content-end mb-5 mt-5 justify-content-between">
@@ -52,13 +52,15 @@
                   <button type="button" class="btn btn-danger" onclick="clearPanier()">Vider Panier</button>
                 </div>
                 <div class="d-flex">
-                  <h3>TOTAL</h3>
-                  <div id="total-prix"></div>
+                  <h3 class="me-4">TOTAL :</h3>
+                  <div class="fw-bold" id="total-prix"></div>
                   <!-- <p class="fw-bold ms-4">1502€</p> -->
                 </div>
               </div>
             </div>
-            <form class="col-12 col-md-6 mb-5" id="myForm">
+          </div>
+          <div class="row">
+            <form class="col-12 col-md-8 mb-5" id="myForm">
               <h2>Adresse</h2>
               <div class="mb-3 row">
                 <div class="col-6">
@@ -99,10 +101,9 @@
                 </div>
               </div>
               <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
-                <h2>Récapitulatif</h2>
                 <div class="d-flex mt-4">
                   <h3 class="me-4">Total</h3>
-                  <p class="fw-bold">800€</p>
+                  <p class="fw-bold" id="total-button">800€</p>
                 </div>
                 <button type="submit" class="btn btn-warning px-5 shadow-sm">Acheter</button>
               </div>
