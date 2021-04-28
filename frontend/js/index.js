@@ -1,11 +1,15 @@
+// ****SELECTION DANS LE DOM****
 let listProduct = document.getElementById("list-product")
 
+// ****ON APPELLE L'API****
 fetch("http://localhost:3000/api/cameras")
 .then((response) => {
     if (response.ok) {
+        // **ON CONVERTIT EN JSON LA RESPONSE**
         response.json()
         .then(data => {
             console.log(data);
+            // METHOD MAP POUR EXPLOITER LA RESPONSE
             data.map((product) => {
                 listProduct.innerHTML +=`
                 <li class="col-md-6 col-lg-4">

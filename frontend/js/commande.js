@@ -3,19 +3,12 @@ const orderRender = document.getElementById("order-render");
 let orderArray = [];
 orderStorage = localStorage.getItem("order");
 if (orderStorage !== null) {
-    orderArray = JSON.parse(orderStorage);
+    // **ON PUSH DANS L'ARRAY VIDE POUR UTILISER METHOD MAP**
+    orderArray.push(JSON.parse(orderStorage));
 };
 
-
-let orderContact = [];
-orderContact.push(orderArray);
-
-
-
-
-let productPrice = orderContact[0].products;
-
-
+// **ON RECUPERE LES PRODUITS DANS L'ARRAY POUR CALCULER SOMME TOTAL**
+let productPrice = orderArray[0].products;
 let totalPrice = 0;
 
 for (let i = 0; i < productPrice.length; i++) {
@@ -23,7 +16,7 @@ for (let i = 0; i < productPrice.length; i++) {
     console.log(totalPrice);
 };
 
-orderContact.map((order) => {
+orderArray.map((order) => {
     orderRender.innerHTML =
     
     `<div class="alert alert-success" role="alert">
@@ -33,11 +26,5 @@ orderContact.map((order) => {
     <p>Bonjour ${order.contact.lastName} ${order.contact.firstName}, votre commande de ${totalPrice}€ a bien été
     enregistré.</p>`
 });
-
-clearPanier = () => {
-    localStorage.removeItem("panier");
-};
-
-clearPanier();
 
 
