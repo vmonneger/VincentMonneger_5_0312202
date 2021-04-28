@@ -36,6 +36,7 @@ fetch(`http://localhost:3000/api/cameras/${urlId}`)
                     option: selectValue
                 });
                 localStorage.setItem('panier', JSON.stringify(panier));
+                window.location.href = "panier.html";
             }
         })
     } else {
