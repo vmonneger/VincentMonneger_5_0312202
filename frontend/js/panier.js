@@ -7,11 +7,13 @@ if (strPanier !== null) {
 };
 
 
-// ***AFFICHE UN TITRE PANIER VIDE***
-if (panier.length === 0) {
-    document.getElementById("panier-vide").style.display = "block";
-} else {
-    document.getElementById("panier-vide").style.display = "none";
+// ***FONCTION QUI AFFICHE UN TITRE PANIER VIDE***
+titrePanier = () => {
+    if (panier.length === 0) {
+        document.getElementById("panier-vide").style.display = "block";
+    } else {
+        document.getElementById("panier-vide").style.display = "none";
+    }
 }
 
 // ***FONCTION QUI AFFICHE LA LISTE DU PANIER***
@@ -61,21 +63,19 @@ removeProduct = (index) => {
     listPanier.innerHTML = "";
     displayProduct();
     totalPrice();
-    // ***AFFICHE LE TITRE PANIER VIDE***
-    if (panier.length === 0) {
-        document.getElementById("panier-vide").style.display = "block";
-    } 
+    titrePanier();
 };
 // ***FONCTION QUI VIDE TOTALEMENT LE PANIER***
 clearPanier = () => {
     localStorage.removeItem("panier");
     panier = [];
     listPanier.innerHTML = "";
-    document.getElementById("panier-vide").style.display = "block";
+    titrePanier();;
     totalPrice();
 };
 
 // ***ON APPELLE LES FONCTIONS***
+titrePanier();
 totalPrice();
 displayProduct();
 
