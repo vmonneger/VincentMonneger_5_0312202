@@ -6,7 +6,6 @@ if (strPanier !== null) {
     panier = JSON.parse(strPanier);
 };
 
-
 // ***FONCTION QUI AFFICHE UN TITRE PANIER VIDE***
 titrePanier = () => {
     if (panier.length === 0) {
@@ -15,7 +14,6 @@ titrePanier = () => {
         document.getElementById("panier-vide").style.display = "none";
     }
 }
-
 // ***FONCTION QUI AFFICHE LA LISTE DU PANIER***
 displayProduct = () => {
     console.log(panier)
@@ -44,7 +42,6 @@ displayProduct = () => {
         `   
     });
 };
-
 // ***FONCTION QUI CALCULE LE PRIX TOTAL DU PANIER***
 totalPrice = () => {
     let sommeTotal = 0;
@@ -73,12 +70,10 @@ clearPanier = () => {
     titrePanier();;
     totalPrice();
 };
-
 // ***ON APPELLE LES FONCTIONS***
 titrePanier();
 totalPrice();
 displayProduct();
-
 // *********LE FORMULAIRE**********
 myForm.addEventListener("submit", (e) => {
     // **SELECTIONNE LES VALEURS DES INPUTS**
@@ -89,7 +84,7 @@ myForm.addEventListener("submit", (e) => {
     const inputVille = document.getElementById("inputVille").value;;
     // **PREVENT DEFAULT POUR NE PAS RECHARGER LA PAGE AU CLICK**
     e.preventDefault();
-
+    
     const regexMail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const regexEspace = /^[A-zÀ-ú]/g;
     const regexAddress = /^[A-zÀ-ú0-9]/g;
