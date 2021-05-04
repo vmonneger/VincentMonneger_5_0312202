@@ -116,7 +116,7 @@ myForm.addEventListener("submit", (e) => {
 
     console.log(postData);
     // **SI TOUS LES INPUTS SONT CONFORMES AU REGEX ET LE PANIER N'EST PAS VIDE, REQUETE POST**
-    if (regexMail.test(inputMail) === true && regexAddress.test(inputAdresse) === true && regexEspace.test(inputNom, inputPrenom, inputVille) === true && panier !== null) {
+    if (regexMail.test(inputMail) === true && regexAddress.test(inputAdresse) === true && regexEspace.test(inputNom, inputPrenom, inputVille) === true && panier.length > 0) {
         fetch("http://localhost:3000/api/cameras/order", {
             method: 'POST',
             headers: {
